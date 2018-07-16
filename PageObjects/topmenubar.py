@@ -24,7 +24,7 @@ class TopMenuBar:
     def validate_community_button_is_present(self):
         assert self._community_button.is_displayed()
 
-    #region Web Elements
+    # region Web Elements
     @property
     def _python_button(self):
         identifier = "//ul[@class='menu']//a[@class='current_item selectedcurrent_branch selected']"
@@ -66,4 +66,4 @@ class TopMenuBar:
         WebDriverWait(driver.instance, driver.element_timeout).until(
             ec.visibility_of_element_located((By.CLASS_NAME, identifier)))
         return driver.instance.find_element_by_class_name(identifier)
-    #endregion
+    # endregion

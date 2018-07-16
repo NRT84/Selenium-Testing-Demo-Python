@@ -36,7 +36,7 @@ class NavigationBar:
     def validate_events_button_is_present(self):
         assert self._events_button.is_displayed()
 
-    #region Web Elements
+    # region Web Elements
     @property
     def _about_button(self):
         identifier = "about"
@@ -92,4 +92,4 @@ class NavigationBar:
         WebDriverWait(driver.instance, driver.element_timeout).until(
             ec.visibility_of_element_located((By.XPATH, identifier)))
         return driver.instance.find_element_by_xpath(identifier)
-    #endregion
+    # endregion

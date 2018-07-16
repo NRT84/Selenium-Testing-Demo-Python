@@ -1,6 +1,7 @@
 # Pycharm
 *.idea
 */__pycache__
+*/.pytest_cache
 
 # Logs
 *.log
