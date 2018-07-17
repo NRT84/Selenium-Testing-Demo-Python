@@ -1,4 +1,3 @@
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from Helpers import driver
@@ -25,14 +24,10 @@ class HomePage:
     @property
     def _search_box(self):
         identifier = "id-search-field"
-        WebDriverWait(driver.instance, driver.element_timeout).until(
-            ec.visibility_of_element_located((By.ID, identifier)))
-        return driver.instance.find_element_by_id(identifier)
+        return driver.wait_for_element(By.ID, identifier, ec.visibility_of_element_located)
 
     @property
     def _go_button(self):
         identifier = "submit"
-        WebDriverWait(driver.instance, driver.element_timeout).until(
-            ec.visibility_of_element_located((By.ID, identifier)))
-        return driver.instance.find_element_by_id(identifier)
+        return driver.wait_for_element(By.ID, identifier, ec.visibility_of_element_located)
     # endregion

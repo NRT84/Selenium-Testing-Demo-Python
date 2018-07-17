@@ -1,4 +1,3 @@
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 import requests
@@ -50,56 +49,40 @@ class NavigationBar:
     @property
     def _about_button(self):
         identifier = "about"
-        WebDriverWait(driver.instance, driver.element_timeout).until(
-            ec.visibility_of_element_located((By.ID, identifier)))
-        return driver.instance.find_element_by_id(identifier)
+        return driver.wait_for_element(By.ID, identifier, ec.visibility_of_element_located)
 
     @property
     def _downloads_button(self):
         identifier = "downloads"
-        WebDriverWait(driver.instance, driver.element_timeout).until(
-            ec.visibility_of_element_located((By.ID, identifier)))
-        return driver.instance.find_element_by_id(identifier)
+        return driver.wait_for_element(By.ID, identifier, ec.visibility_of_element_located)
 
     @property
     def _documentation_button(self):
         identifier = "documentation"
-        WebDriverWait(driver.instance, driver.element_timeout).until(
-            ec.visibility_of_element_located((By.ID, identifier)))
-        return driver.instance.find_element_by_id(identifier)
+        return driver.wait_for_element(By.ID, identifier, ec.visibility_of_element_located)
 
     @property
     def _community_button(self):
         identifier = "community"
-        WebDriverWait(driver.instance, driver.element_timeout).until(
-            ec.visibility_of_element_located((By.ID, identifier)))
-        return driver.instance.find_element_by_id(identifier)
+        return driver.wait_for_element(By.ID, identifier, ec.visibility_of_element_located)
 
     @property
     def _success_stories_button(self):
         identifier = "success-stories"
-        WebDriverWait(driver.instance, driver.element_timeout).until(
-            ec.visibility_of_element_located((By.ID, identifier)))
-        return driver.instance.find_element_by_id(identifier)
+        return driver.wait_for_element(By.ID, identifier, ec.visibility_of_element_located)
 
     @property
     def _news_button(self):
         identifier = "news"
-        WebDriverWait(driver.instance, driver.element_timeout).until(
-            ec.visibility_of_element_located((By.ID, identifier)))
-        return driver.instance.find_element_by_id(identifier)
+        return driver.wait_for_element(By.ID, identifier, ec.visibility_of_element_located)
 
     @property
     def _events_button(self):
         identifier = "events"
-        WebDriverWait(driver.instance, driver.element_timeout).until(
-            ec.visibility_of_element_located((By.ID, identifier)))
-        return driver.instance.find_element_by_id(identifier)
+        return driver.wait_for_element(By.ID, identifier, ec.visibility_of_element_located)
 
     @property
     def _download_latest_link(self):
         identifier = "//div[@class='header-banner ']//div[@class='download-os-source']//a[@class='button']"
-        WebDriverWait(driver.instance, driver.element_timeout).until(
-            ec.visibility_of_element_located((By.XPATH, identifier)))
-        return driver.instance.find_element_by_xpath(identifier)
+        return driver.wait_for_element(By.XPATH, identifier, ec.visibility_of_element_located)
     # endregion

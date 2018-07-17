@@ -1,4 +1,3 @@
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from Helpers import driver
@@ -35,42 +34,30 @@ class TopMenuBar:
     @property
     def _python_button(self):
         identifier = "//ul[@class='menu']//a[@class='current_item selectedcurrent_branch selected']"
-        WebDriverWait(driver.instance, driver.element_timeout).until(
-            ec.visibility_of_element_located((By.XPATH, identifier)))
-        return driver.instance.find_element_by_xpath(identifier)
+        return driver.wait_for_element(By.XPATH, identifier, ec.visibility_of_element_located)
 
     @property
     def _psf_button(self):
         identifier = "psf-meta "
-        WebDriverWait(driver.instance, driver.element_timeout).until(
-            ec.visibility_of_element_located((By.CLASS_NAME, identifier)))
-        return driver.instance.find_element_by_class_name(identifier)
+        return driver.wait_for_element(By.CLASS_NAME, identifier, ec.visibility_of_element_located)
 
     @property
     def _docs_button(self):
         identifier = "docs-meta "
-        WebDriverWait(driver.instance, driver.element_timeout).until(
-            ec.visibility_of_element_located((By.CLASS_NAME, identifier)))
-        return driver.instance.find_element_by_class_name(identifier)
+        return driver.wait_for_element(By.CLASS_NAME, identifier, ec.visibility_of_element_located)
 
     @property
     def _pypi_button(self):
         identifier = "pypi-meta "
-        WebDriverWait(driver.instance, driver.element_timeout).until(
-            ec.visibility_of_element_located((By.CLASS_NAME, identifier)))
-        return driver.instance.find_element_by_class_name(identifier)
+        return driver.wait_for_element(By.CLASS_NAME, identifier, ec.visibility_of_element_located)
 
     @property
     def _jobs_button(self):
         identifier = "jobs-meta "
-        WebDriverWait(driver.instance, driver.element_timeout).until(
-            ec.visibility_of_element_located((By.CLASS_NAME, identifier)))
-        return driver.instance.find_element_by_class_name(identifier)
+        return driver.wait_for_element(By.CLASS_NAME, identifier, ec.visibility_of_element_located)
 
     @property
     def _community_button(self):
         identifier = "shop-meta "
-        WebDriverWait(driver.instance, driver.element_timeout).until(
-            ec.visibility_of_element_located((By.CLASS_NAME, identifier)))
-        return driver.instance.find_element_by_class_name(identifier)
+        return driver.wait_for_element(By.CLASS_NAME, identifier, ec.visibility_of_element_located)
     # endregion
