@@ -2,25 +2,32 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from Helpers import driver
+import allure
 
 
 class TopMenuBar:
 
+    @allure.step("validate that the 'python' button is present")
     def validate_python_button_is_present(self):
         assert self._python_button.is_displayed()
 
+    @allure.step("validate that the 'psf' button is present")
     def validate_psf_button_is_present(self):
         assert self._psf_button.is_displayed()
 
+    @allure.step("validate that the 'docs' button is present")
     def validate_docs_button_is_present(self):
         assert self._docs_button.is_displayed()
 
+    @allure.step("validate that the 'pypi' button is present")
     def validate_pypi_button_is_present(self):
         assert self._pypi_button.is_displayed()
 
+    @allure.step("validate that the 'jobs' button is present")
     def validate_jobs_button_is_present(self):
         assert self._jobs_button.is_displayed()
 
+    @allure.step("validate that the 'community' button is present")
     def validate_community_button_is_present(self):
         assert self._community_button.is_displayed()
 

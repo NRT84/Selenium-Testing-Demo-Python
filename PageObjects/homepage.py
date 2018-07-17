@@ -2,6 +2,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from Helpers import driver
+import allure
 
 
 class HomePage:
@@ -10,13 +11,15 @@ class HomePage:
         self.url = "https://www.python.org"
 
     def go_to(self):
-        driver.navigate(self.url)
+        with allure.step("go to url: {0}".format(self.url)):
+            driver.navigate(self.url)
 
     def search(self, text):
-        if not isinstance(text, str):
-            raise TypeError("Url must be a string")
-        self._search_box.send_keys(text)
-        self._go_button.click()
+        with allure.step("search for {0}".format(text)):
+            if not isinstance(text, str):
+                raise TypeError("Url must be a string")
+            self._search_box.send_keys(text)
+            self._go_button.click()
 
     # region Web Elements
     @property

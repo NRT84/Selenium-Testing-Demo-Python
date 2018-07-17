@@ -3,36 +3,46 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 import requests
 from Helpers import driver
+import allure
 
 
 class NavigationBar:
 
+    @allure.step("click the 'download' button")
     def downloads_button_go_to(self):
-        self._downloads_button.click()
+            self._downloads_button.click()
 
+    @allure.step("validate that the 'downloads' button will yield the latest link")
     def validate_downloads_latest_link(self):
         url = self._download_latest_link.get_property("href")
         req = requests.get(url)
         assert req.status_code == 200
 
+    @allure.step("validate that the 'about' button is present")
     def validate_about_button_is_present(self):
         assert self._about_button.is_displayed()
 
+    @allure.step("validate that the 'downloads' button is present")
     def validate_downloads_button_is_present(self):
         assert self._downloads_button.is_displayed()
 
+    @allure.step("validate that the 'documentation' button is present")
     def validate_documentation_button_is_present(self):
         assert self._documentation_button.is_displayed()
 
+    @allure.step("validate that the 'community' button is present")
     def validate_community_button_is_present(self):
         assert self._community_button.is_displayed()
 
+    @allure.step("validate that the 'stories' button is present")
     def validate_success_stories_button_is_present(self):
         assert self._success_stories_button.is_displayed()
 
+    @allure.step("validate that the 'news' button is present")
     def validate_news_button_is_present(self):
         assert self._news_button.is_displayed()
 
+    @allure.step("validate that the 'events' button is present")
     def validate_events_button_is_present(self):
         assert self._events_button.is_displayed()
 
